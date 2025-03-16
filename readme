@@ -1,0 +1,7 @@
+Setup:
+
+Clone the repository
+
+Run npm install in both /chat-app and /chat-server
+
+Use docker-compose up to launch the full-stack environment
