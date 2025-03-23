@@ -6,15 +6,39 @@ services:
       - "3000:3000"
     environment:
       - REACT_APP_API_URL=http://localhost:3001
-  backend:
+    networks:
+      - chat-network
+    depends_on:
+      - chat-server
+    links:
+      - chat-server
+
+  chat-server:
     build: ./chat-server
     ports:
       - "3001:3001"
     environment:
       - MONGO_URI=mongodb://mongo:27017/chatapp
+      - PORT=3001
+    networks:
+      - chat-network
+    depends_on:
+      - mongo
+
   mongo:
     image: mongo:5.0
+    container_name: mongo
+    ports:
+      - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    networks:
+      - chat-network
+
 volumes:
   mongo-data:
+
+
+networks:
+  chat-network:
+    driver: bridge

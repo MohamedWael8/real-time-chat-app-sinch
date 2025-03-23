@@ -10,26 +10,28 @@ You will create a live chat application with the following functionalities:
 
 Core Features
 
-Frontend: The UI should be a webpage and include at least…
-a text input to set a username
-a text area input to enter the message
-a display of the message history where each message should at least contain …
-the username of the user that sent the message
-the content of the message
-Backend: The frontend should be backed by a backend containing one or multiple services that deal with the given requirements like …
-persisting the message history
-serving the message history when a user joins the channel
-pushing real-time updates to all users
+Frontend:
+The UI should be a webpage and include at least a text input to set a username, a text area input to enter the message, a display of the message history where each message should at least contain the username of the user that sent the message, and the content of the message
+
+Backend:
+The frontend should be backed by a backend containing one or multiple services that deal with the given requirements like persisting the message history serving the message history when a user joins the channel pushing real-time updates to all users.
+
 No multiple channels required. There is only one chat session that every user connects to when joining the chat.
+
 Multiple users can join the session, for example by opening a new browser window/tab.
 Message history should persist even after a user leaves the session.
 Messages and user activity should update in real time without requiring a page reload.
+
 Technical Expectations
 
 Language: The frontend should be written in React and Typescript and the backend in Typescript or Go.
+
 Testing: Add at least one useful test for a part of the code of your choice.
+
 Error Handling & Logging: Implement proper error handling and logging both on the client and server side.
+
 Containerization (Bonus): Optionally, containerize your solution using Docker for ease of deployment.
+
 Deliverables
 
 A public repository with the complete code and clear documentation, shared via a public Git provider (e.g., GitHub, GitLab, Bitbucket).
@@ -38,6 +40,7 @@ Instructions on how to run the application (it should run on Windows, Mac, and L
 A brief explanation of the architectural choices.
 Possible improvements and trade-offs considered.
 Any additional tests or deployment configurations (if applicable).
+
 Evaluation Criteria
 
 Code Quality & Readability: Clean, maintainable, and well-structured code.
