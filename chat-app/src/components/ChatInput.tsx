@@ -6,9 +6,17 @@ const ChatInput = () => {
   const [message, setMessage] = useState("");
 
   const sendMessage = () => {
-    if (username && message) {
+    if (!username || !message) {
+      alert("Username and message are required.");
+      return;
+    }
+
+    try {
       socket.emit("sendMessage", { username, content: message });
       setMessage("");
+    } catch (err) {
+      alert("Failed to send the message. Please try again.");
+      console.error("Send Message Error:", err);
     }
   };
 

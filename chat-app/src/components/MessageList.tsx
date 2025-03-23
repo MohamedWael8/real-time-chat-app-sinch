@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import socket from "../utils/socket";
 import Message from "./Message";
+import axiosInstance from "../utils/axios";
 
 interface MessageType {
   username: string;
@@ -11,6 +12,13 @@ const MessageList = () => {
   const [messages, setMessages] = useState<MessageType[]>([]);
 
   useEffect(() => {
+    axiosInstance
+      .get("/messages")
+      .then((res) => {
+        setMessages(res.data);
+      })
+      .catch((err) => console.error("Error fetching messages:", err));
+
     socket.on("message", (newMessage: MessageType) => {
       setMessages((prev) => [...prev, newMessage]);
     });
