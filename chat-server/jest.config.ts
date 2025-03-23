@@ -1,16 +1,12 @@
-import type { JestConfigWithTsJest } from "ts-jest";
+import { JestConfigWithTsJest } from "ts-jest";
 
 const config: JestConfigWithTsJest = {
-  preset: "ts-jest",
+  preset: "ts-jest/presets/default-esm", // Use ESM preset for compatibility
   testEnvironment: "node",
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.tsx?$": ["ts-jest", { useESM: true }],
   },
-  moduleFileExtensions: ["ts", "tsx", "js"],
-  roots: ["<rootDir>/src"],
-  moduleNameMapper: {
-    "^(\\.{1,2}/.*)\\.js$": "$1", // Fixes path issues when using NodeNext
-  },
+  extensionsToTreatAsEsm: [".ts"],
 };
 
 export default config;

@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import Message from "../models/Message";
+import Message from "../models/Message.js";
 
 const router = Router();
 

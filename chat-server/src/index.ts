@@ -1,7 +1,7 @@
 import { createServer } from "http";
-import app from "./server";
+import app from "./server.js";
 import { Server } from "socket.io";
-import Message from "./models/Message";
+import Message from "./models/Message.js";
 
 const server = createServer(app);
 const io = new Server(server, {

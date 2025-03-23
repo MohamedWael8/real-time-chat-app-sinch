@@ -1,6 +1,15 @@
 FROM node:20-alpine
 WORKDIR /app
-COPY . .
+
+# Install dependencies
+COPY package*.json ./
 RUN npm install
-EXPOSE 3001
-CMD ["npm", "start"]
+
+# Copy source code
+COPY . .
+
+# Build the project
+RUN npm run build  # Ensures compiled files are generated in `/dist`
+
+# Run the compiled application
+CMD ["node", "dist/src/index.js"]
